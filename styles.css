@@ -77,9 +77,11 @@ body {
 
 .terminal_promt {
     display: flex;
+    flex-wrap: wrap; 
     align-items: center;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
 }
-
 .terminal_promt span {
     margin-left: 4px;
 }
