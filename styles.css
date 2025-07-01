@@ -127,6 +127,30 @@ body {
         background: #ffffff;
     }
 }
+.terminal_body {
+  display: flex;
+  flex-direction: column;       /* prompt em cima, conteúdo abaixo */
+}
+.terminal_content {
+  flex: 1 1 auto;               /* ocupa todo o espaço sobrando */
+  overflow-y: auto;             /* scroll vertical no conteúdo, não na page */
+  padding: 10px;
+}
+
+/* Ajustes no <pre> para caber dentro do terminal */
+.terminal_content pre {
+  font-size: inherit;      /* herda o font-size definido em .terminal_body (25px) */
+  font-family: inherit;    /* herda a fonte monospace do terminal */
+  white-space: pre-wrap;        /* quebra linhas no espaço */
+  word-wrap: break-word;
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+.terminal_content pre a {
+  color: #7eda28;             
+  text-decoration: underline;
+}
 
 .terminal_content {
     padding: 10px;
@@ -146,6 +170,13 @@ body {
     margin: 5px 0;
 }
 
+.terminal_content .cmd-list li:hover {
+  text-decoration: underline solid #7eda28;
+  text-underline-offset: 3px;    
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+}
+
 .terminal_content a {
     color: #7eda28;
     text-decoration: none;
@@ -153,6 +184,14 @@ body {
 
 .terminal_content a:hover {
     text-decoration: underline;
+}
+
+.json-wrapper {
+  margin-bottom: 1em;
+}
+
+.terminal_content {
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 768px) {
