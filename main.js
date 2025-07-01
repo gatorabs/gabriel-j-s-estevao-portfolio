@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function showTerminalContent() {
         terminalContent.style.display = 'block'; 
         terminalContent.innerHTML += `
-            <p>"I'm Gabriel Estevão, a Back-end developer."</p>
             <ul>
                 <li><a href="https://github.com/gatorabs" target="_blank">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/gabriel-jos%C3%A9-spioni-estev%C3%A3o-742403235/" target="_blank">LinkedIn</a></li>

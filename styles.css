@@ -130,7 +130,7 @@ body {
 
 .terminal_content {
     padding: 10px;
-    color: #d5d0ce;
+    color: #7eda28;
 }
 
 .terminal_content p {
@@ -149,7 +149,6 @@ body {
 .terminal_content a {
     color: #7eda28;
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .terminal_content a:hover {
