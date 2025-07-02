@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <li><a href="https://drive.google.com/file/d/1bkzUlNjgfZLJ6Ybokw7oN8X4zulfdbdH/view?usp=sharing" target="_blank">resume</a></li>
           </ul>
           <ul class="cmd-list">
-            <li data-cmd="cd ..">cd ..</li>
+            <li data-cmd="cd .." style="color: #ffffff; text-shadow: 0 0 3px #ffffff;">cd ..</li>
           </ul>
         `;
                 contentDiv.querySelector('li[data-cmd="cd .."]').addEventListener('click', () => {
@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 contentDiv.innerHTML = `
   <pre><code class="language-json">${JSON.stringify(skillsData, null, 2)}</code></pre>
   <ul class="cmd-list">
-    <li data-cmd="cd ..">cd ..</li>
+    <li data-cmd="cd .." style="color: #ffffff; text-shadow: 0 0 3px #ffffff;">cd ..</li>
   </ul>
 `;
                 Prism.highlightAll();
