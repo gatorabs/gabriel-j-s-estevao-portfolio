@@ -1,7 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     const locationSpan = document.querySelector('.terminal_location');
     const cursorSpan = document.querySelector('.terminal_cursor');
-    // Refer to the new output area
     const contentDiv = document.querySelector('.terminal_output');
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -18,8 +17,11 @@ window.addEventListener('DOMContentLoaded', () => {
         cursorSpan.style.display = 'inline-block';
     }
 
+    // Execute command: type it, then clear output, then render result
     async function executeCommand(cmd) {
         await typeCommand(cmd);
+        // Clear previous output only after "enter"
+        contentDiv.innerHTML = '';
         runCommand(cmd);
     }
 
@@ -32,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         contentDiv.querySelectorAll('li').forEach(li => {
             li.addEventListener('click', () => {
-                contentDiv.innerHTML = '';
+                // Removed premature clear here; executeCommand will handle clearing
                 executeCommand(li.dataset.cmd);
             });
         });
@@ -81,14 +83,13 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
             contentDiv.querySelector('li[data-cmd="cd .."]').addEventListener('click', () => {
-                contentDiv.innerHTML = '';
                 executeCommand('cd ..');
             });
             return;
         }
 
         if (cmd === 'cd projects') {
-            executeCommand('cd ..')
+            executeCommand('cd ..');
             return;
         }
 
@@ -101,13 +102,12 @@ window.addEventListener('DOMContentLoaded', () => {
           <li data-cmd="ls">cd ..</li>
         </ul>`;
             contentDiv.querySelector('li').addEventListener('click', () => {
-                contentDiv.innerHTML = '';
                 executeCommand('ls');
             });
             return;
         }
     }
 
-    // Inicializa
+    // Inicializa listagem inicial
     executeCommand('ls');
 });
