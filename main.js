@@ -10,9 +10,9 @@ window.addEventListener('DOMContentLoaded', () => {
         locationSpan.textContent = '~ $ ';
         for (const ch of cmd) {
             locationSpan.textContent += ch;
-            await sleep(100);
+            await sleep(80);
         }
-        await sleep(300);
+        await sleep(280);
         locationSpan.textContent = '~ $ ';
         cursorSpan.style.display = 'inline-block';
     }
@@ -40,8 +40,8 @@ window.addEventListener('DOMContentLoaded', () => {
     function runCommand(cmd) {
         if (cmd === 'ls' || cmd === 'cd ..') {
             renderMenu([
-                { cmd: 'cat contact', label: 'contact.txt' },
-                { cmd: 'cat skills', label: 'skills.json' },
+                { cmd: 'cat contact.txt', label: 'contact.txt' },
+                { cmd: 'cat skills.json', label: 'skills.json' },
                 { cmd: 'cd projects', label: 'projects/' },
             ]);
             return;
@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const file = cmd.split(' ')[1];
             contentDiv.style.display = 'block';
 
-            if (file === 'contact') {
+            if (file === 'contact.txt') {
                 contentDiv.innerHTML = `
           <ul>
             <li><a href="https://github.com/gatorabs" target="_blank">github</a></li>
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 contentDiv.querySelector('li[data-cmd="cd .."]').addEventListener('click', () => {
                     executeCommand('cd ..');
                 });
-            } else if (file === 'skills') {
+            } else if (file === 'skills.json') {
                 const skillsData = {
                     "languages": [
                         { name: "C#", frameworks: [{ name: ".NET" }, { name: "ASP.NET" }] },

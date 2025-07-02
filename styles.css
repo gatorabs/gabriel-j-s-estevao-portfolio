@@ -273,6 +273,8 @@ body {
     }
 
     .terminal_content a {
-        font-size: 16px;
+        color: #7eda28;
+        text-decoration: none;
+        font-size: inherit;
     }
 }
