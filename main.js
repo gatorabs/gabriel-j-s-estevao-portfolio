@@ -2,8 +2,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const locationSpan = document.querySelector('.terminal_location');
     const cursorSpan = document.querySelector('.terminal_cursor');
     const contentDiv = document.querySelector('.terminal_output');
+    const container = contentDiv;
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
+    let isLocked = false;
 
     async function typeCommand(cmd) {
         cursorSpan.style.display = 'none';
@@ -18,27 +20,25 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     async function executeCommand(cmd) {
+        if (isLocked) return;
+        isLocked = true;
+        container.style.pointerEvents = 'none';
+
         await typeCommand(cmd);
         contentDiv.innerHTML = '';
-        runCommand(cmd);
+        await executeCommands(cmd);
+
+        container.style.pointerEvents = 'auto';
+        isLocked = false;
     }
 
-    function renderMenu(items) {
-        contentDiv.innerHTML = `
-      <ul class="cmd-list">
-        ${items.map(i => `<li data-cmd="${i.cmd}">${i.label}</li>`).join('')}
-      </ul>`;
-        contentDiv.style.display = 'block';
+    async function executeCommands(cmd) {
+        if (cmd === 'cd ..') {
+            await typeCommand('ls');
+            cmd = 'ls';
+        }
 
-        contentDiv.querySelectorAll('li').forEach(li => {
-            li.addEventListener('click', () => {
-                executeCommand(li.dataset.cmd);
-            });
-        });
-    }
-
-    function runCommand(cmd) {
-        if (cmd === 'ls' || cmd === 'cd ..') {
+        if (cmd === 'ls') {
             renderMenu([
                 { cmd: 'cat contact.txt', label: 'contact.txt' },
                 { cmd: 'cat skills.json', label: 'skills.json' },
@@ -74,11 +74,11 @@ window.addEventListener('DOMContentLoaded', () => {
                     ],
                 };
                 contentDiv.innerHTML = `
-  <pre><code class="language-json">${JSON.stringify(skillsData, null, 2)}</code></pre>
-  <ul class="cmd-list">
-    <li data-cmd="cd .." style="color: #ffffff; text-shadow: 0 0 3px #ffffff;">cd ..</li>
-  </ul>
-`;
+            <pre><code class="language-json">${JSON.stringify(skillsData, null, 2)}</code></pre>
+            <ul class="cmd-list">
+                <li data-cmd="cd .." style="color: #ffffff; text-shadow: 0 0 3px #ffffff;">cd ..</li>
+            </ul>
+            `;
                 Prism.highlightAll();
                 const cdEl = contentDiv.querySelector('li[data-cmd="cd .."]');
                 cdEl.addEventListener('click', () => {
@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         if (cmd === 'cd projects') {
-            executeCommand('cd ..');
+            await executeCommand('cd ..');
             return;
         }
 
@@ -107,6 +107,20 @@ window.addEventListener('DOMContentLoaded', () => {
             });
             return;
         }
+    }
+
+    function renderMenu(items) {
+        contentDiv.innerHTML = `
+      <ul class="cmd-list">
+        ${items.map(i => `<li data-cmd="${i.cmd}">${i.label}</li>`).join('')}
+      </ul>`;
+        contentDiv.style.display = 'block';
+
+        contentDiv.querySelectorAll('li').forEach(li => {
+            li.addEventListener('click', () => {
+                executeCommand(li.dataset.cmd);
+            });
+        });
     }
 
     executeCommand('ls');
