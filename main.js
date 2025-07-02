@@ -1,7 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const locationSpan = document.querySelector('.terminal_location');
     const cursorSpan = document.querySelector('.terminal_cursor');
-    const contentDiv = document.querySelector('.terminal_content');
+    // Refer to the new output area
+    const contentDiv = document.querySelector('.terminal_output');
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -23,12 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderMenu(items) {
-        contentDiv.style.display = 'block';
-        contentDiv.className = 'terminal_content'; // Reseta classes
         contentDiv.innerHTML = `
       <ul class="cmd-list">
         ${items.map(i => `<li data-cmd="${i.cmd}">${i.label}</li>`).join('')}
       </ul>`;
+        contentDiv.style.display = 'block';
 
         contentDiv.querySelectorAll('li').forEach(li => {
             li.addEventListener('click', () => {
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function runCommand(cmd) {
-        // raiz
         if (cmd === 'ls' || cmd === 'cd ..') {
             renderMenu([
                 { cmd: 'cat contact', label: 'contact.txt' },
@@ -49,62 +48,45 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // arquivos
         if (cmd.startsWith('cat ')) {
             const file = cmd.split(' ')[1];
             contentDiv.style.display = 'block';
-            contentDiv.className = 'terminal_content'; // Reseta classes
 
             if (file === 'contact') {
                 contentDiv.innerHTML = `
           <ul>
-            <li><a href="https://github.com/gatorabs" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/gabriel-jos%C3%A9-spioni-estev%C3%A3o-742403235/" target="_blank">LinkedIn</a></li>
-            <li><a href="https://drive.google.com/file/d/1bkzUlNjgfZLJ6Ybokw7oN8X4zulfdbdH/view?usp=sharing" target="_blank">Resume</a></li>
+            <li><a href="https://github.com/gatorabs" target="_blank">github</a></li>
+            <li><a href="https://www.linkedin.com/in/gabriel-jos%C3%A9-spioni-estev%C3%A3o-742403235/" target="_blank">linkedin</a></li>
+            <li><a href="https://drive.google.com/file/d/1bkzUlNjgfZLJ6Ybokw7oN8X4zulfdbdH/view?usp=sharing" target="_blank">resume</a></li>
           </ul>
           <ul class="cmd-list">
             <li data-cmd="cd ..">cd ..</li>
           </ul>
         `;
-            }
-            else if (file === 'skills') {
+            } else if (file === 'skills') {
                 const skillsData = {
                     "languages": [
-                        {
-                            "name": "C#",
-                            "frameworks": [
-                                { "name": ".NET" },
-                                { "name": "ASP.NET" } // Adding ASP.NET here too, as it's typically C# related
-                            ]
-                        },
-                        {
-                            "name": "Python",
-                            "frameworks": [
-                                { "name": "Flask" } // Adding Flask under Python
-                            ]
-                        },
-                        { "name": "C++" }, // C++ doesn't have specific frameworks listed in your example
+                        { name: "C#", frameworks: [{ name: ".NET" }, { name: "ASP.NET" }] },
+                        { name: "Python", frameworks: [{ name: "Flask" }] },
+                        { name: "C++" },
                     ],
                 };
-
-                contentDiv.classList.add('long-content');
                 contentDiv.innerHTML = `
-          <pre>${JSON.stringify(skillsData, null, 2)}</pre>
-          <ul class="cmd-list">
-            <li data-cmd="cd ..">cd ..</li>
-          </ul>
-        `;
+  <pre><code class="language-json">${JSON.stringify(skillsData, null, 2)}</code></pre>
+  <ul class="cmd-list">
+    <li data-cmd="cd ..">cd ..</li>
+  </ul>
+`;
+                Prism.highlightAll();
             }
 
-            // Adiciona evento de voltar
-            contentDiv.querySelector('li[data-cmd="cd .."]')?.addEventListener('click', () => {
+            contentDiv.querySelector('li[data-cmd="cd .."]').addEventListener('click', () => {
                 contentDiv.innerHTML = '';
                 executeCommand('cd ..');
             });
             return;
         }
 
-        // pasta projects
         if (cmd === 'cd projects') {
             renderMenu([
                 { cmd: 'ls', label: 'cd ..' },
@@ -115,11 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // sub-ls dentro de projects
         if (cmd.startsWith('ls ')) {
             const dir = cmd.split(' ')[1];
             contentDiv.style.display = 'block';
-            contentDiv.className = 'terminal_content';
             contentDiv.innerHTML = `
         <p>Conteúdo de <strong>${dir}</strong>...</p>
         <ul class="cmd-list">
@@ -133,6 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Inicia o terminal
+    // Inicializa
     executeCommand('ls');
 });

@@ -35,7 +35,6 @@ body {
     align-items: center;
     padding: 0;
     margin-right: 5px;
-    font-size: 8px;
     height: 12px;
     width: 12px;
     box-sizing: border-box;
@@ -82,16 +81,15 @@ body {
     word-wrap: break-word; 
     overflow-wrap: break-word; 
 }
-.terminal_promt span {
-    margin-left: 4px;
-}
 
 .terminal_user {
     color: #7eda28;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .terminal_location {
     color: #4878c0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .terminal_bling {
@@ -129,19 +127,18 @@ body {
 }
 .terminal_body {
   display: flex;
-  flex-direction: column;       /* prompt em cima, conteúdo abaixo */
+  flex-direction: column;       
 }
 .terminal_content {
-  flex: 1 1 auto;               /* ocupa todo o espaço sobrando */
-  overflow-y: auto;             /* scroll vertical no conteúdo, não na page */
+  flex: 1 1 auto;               
+  overflow-y: auto;             
   padding: 10px;
 }
 
-/* Ajustes no <pre> para caber dentro do terminal */
 .terminal_content pre {
-  font-size: inherit;      /* herda o font-size definido em .terminal_body (25px) */
-  font-family: inherit;    /* herda a fonte monospace do terminal */
-  white-space: pre-wrap;        /* quebra linhas no espaço */
+  font-size: inherit;      
+  font-family: inherit;    
+  white-space: pre-wrap;        
   word-wrap: break-word;
   margin: 0 0 1em;
   padding: 0;
@@ -164,17 +161,22 @@ body {
 .terminal_content ul {
     list-style: none;
     padding-left: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .terminal_content li {
     margin: 5px 0;
 }
 
+
 .terminal_content .cmd-list li:hover {
-  text-decoration: underline solid #7eda28;
-  text-underline-offset: 3px;    
+  background-color: transparent !important;  /* remove qualquer fundo */
+  color: inherit !important;                 /* mantém a cor original */
+  text-decoration: underline solid #7eda28 !important;
+  text-underline-offset: 3px;
   text-decoration-thickness: 2px;
-  cursor: pointer;
+  cursor: pointer;  
+  
 }
 
 .terminal_content a {
@@ -194,6 +196,49 @@ body {
   overflow-y: auto;
 }
 
+.json-list, .json-list ul {
+  list-style: none;
+  padding-left: 1em;
+  margin: 0;
+}
+
+.json-list > li {
+  margin: 0.5em 0;
+}
+
+.json-list strong {
+  color: #4878c0; 
+}
+
+.json-list li::before {
+  content: "• ";
+  color: #7eda28; 
+}
+
+.terminal_content pre[class*="language-json"],
+.terminal_content pre.language-json {
+  background: rgba(17, 17, 17, 0.5) !important;
+  padding: 1em !important;        
+  border-radius: 0.5em !important; 
+  margin: 0 !important;            
+}
+
+.terminal_content pre[class*="language-json"] > code {
+  background: transparent !important;
+}
+
+.terminal_content pre[class*="language-"] .token.string {
+  color: #7eda28 !important;    /
+}
+.terminal_content pre[class*="language-"] .token.property {
+  color: #7eda28 !important;    
+}
+
+.terminal_content pre[class*="language-json"],
+.terminal_content pre[class*="language-json"] > code {
+  font-size: inherit !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
 @media screen and (max-width: 768px) {
     .container {
         width: 90%;
