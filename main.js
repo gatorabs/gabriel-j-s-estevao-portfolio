@@ -88,12 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         if (cmd === 'cd projects') {
-            renderMenu([
-                { cmd: 'ls', label: 'cd ..' },
-                { cmd: 'ls portfolio-web', label: 'portfolio-web' },
-                { cmd: 'ls fluxo-de-dados', label: 'fluxo-de-dados' },
-                { cmd: 'ls visão-computacional', label: 'visão-computacional' },
-            ]);
+            executeCommand('cd ..')
             return;
         }
 
