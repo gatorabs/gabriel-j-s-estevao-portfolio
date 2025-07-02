@@ -162,6 +162,7 @@ body {
     list-style: none;
     padding-left: 0;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .terminal_content li {
@@ -245,10 +246,11 @@ body {
         height: auto;
         padding: 20px;
         box-sizing: border-box;
+        max-height: 60vh;
     }
 
     .terminal_body {
-        font-size: 18px;
+        max-height: calc(100vh - 25px);
     }
 
     .terminal_toolbar {
@@ -264,8 +266,10 @@ body {
     }
 
     .terminal_content {
-        padding: 10px;
-        font-size: 16px;
+        font-size: 18px;
+        padding: 8px;
+        height: auto;
+        max-height: 60vh;
     }
 
     .terminal_content a {

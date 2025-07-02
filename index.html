@@ -1,42 +1,39 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gabriel Estevão</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel Estevão</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <div class="container">
-        <div class="terminal_toolbar">
-            <div class="butt">
-                <button class="btn btn-color"></button>
-                <button class="btn"></button>
-                <button class="btn"></button>
-            </div>
-            <p class="user">gabrieljestevao@admin: ~</p>
-        </div>
-        <div class="terminal_body">
-            <div class="terminal_content">
-                <!-- Prompt moved inside scrollable area -->
-                <div class="terminal_promt">
-                    <span class="terminal_user">gabrieljestevao@admin:</span>
-                    <span class="terminal_location">~ $ </span>
-                    <span class="terminal_cursor"></span>
-                </div>
-
-                <!-- Output container -->
-                <div class="terminal_output"></div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="terminal_toolbar">
+      <div class="butt">
+        <button class="btn btn-color"></button>
+        <button class="btn"></button>
+        <button class="btn"></button>
+      </div>
+      <p class="user">gabrieljestevao@admin: ~</p>
     </div>
-    <script src="main.js"></script>
+    <div class="terminal_body">
+      <div class="terminal_content">
+        <!-- Prompt -->
+        <div class="terminal_promt">
+          <span class="terminal_user">gabrieljestevao@admin:</span>
+          <span class="terminal_location">~ $ </span>
+          <span class="terminal_cursor"></span>
+        </div>
+        <!-- Output gerado pelo JS -->
+        <div class="terminal_output"></div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
 </body>
-
 </html>
