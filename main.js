@@ -17,10 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
         cursorSpan.style.display = 'inline-block';
     }
 
-    // Execute command: type it, then clear output, then render result
     async function executeCommand(cmd) {
         await typeCommand(cmd);
-        // Clear previous output only after "enter"
         contentDiv.innerHTML = '';
         runCommand(cmd);
     }
@@ -34,7 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         contentDiv.querySelectorAll('li').forEach(li => {
             li.addEventListener('click', () => {
-                // Removed premature clear here; executeCommand will handle clearing
                 executeCommand(li.dataset.cmd);
             });
         });
@@ -65,6 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
             <li data-cmd="cd ..">cd ..</li>
           </ul>
         `;
+                contentDiv.querySelector('li[data-cmd="cd .."]').addEventListener('click', () => {
+                    executeCommand('cd ..');
+                });
             } else if (file === 'skills') {
                 const skillsData = {
                     "languages": [
@@ -80,11 +80,12 @@ window.addEventListener('DOMContentLoaded', () => {
   </ul>
 `;
                 Prism.highlightAll();
+                const cdEl = contentDiv.querySelector('li[data-cmd="cd .."]');
+                cdEl.addEventListener('click', () => {
+                    document.querySelector('.terminal_content').scrollTop = 0;
+                    executeCommand('cd ..');
+                });
             }
-
-            contentDiv.querySelector('li[data-cmd="cd .."]').addEventListener('click', () => {
-                executeCommand('cd ..');
-            });
             return;
         }
 
@@ -108,6 +109,5 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Inicializa listagem inicial
     executeCommand('ls');
 });
