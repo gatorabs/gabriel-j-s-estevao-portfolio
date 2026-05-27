@@ -281,7 +281,24 @@ html[data-lang="en"] [data-lang-inline="pt"] { display: none; }
     padding: 24px 0 52px;
   }
 
-  .controls { margin-bottom: 40px; }
+  .controls {
+    margin-bottom: 40px;
+    gap: 12px;
+  }
+
+  .controls button {
+    padding: 8px 14px;
+    border: 1px solid var(--dim);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    min-width: 48px;
+    min-height: 40px;
+    color: var(--text);
+  }
+
+  .controls button:active {
+    background: var(--line);
+  }
   .hero { margin-bottom: 40px; }
 
   .entry {
