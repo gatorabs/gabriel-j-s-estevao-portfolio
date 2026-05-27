@@ -1,142 +1,125 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="dark" data-lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriel Estevão | Software Engineer</title>
-  <meta name="description" content="Portfólio objetivo de Gabriel Estevão, Software Engineer com experiência em .NET, microsserviços, APIs, cloud e DevOps." />
+  <title>Gabriel Estevão — Software Engineer</title>
+  <meta name="description" content="Portfólio de Gabriel Estevão, Software Engineer com experiência em .NET, microsserviços, APIs, cloud e DevOps." />
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="page">
-    <div class="top-actions" aria-label="Controles da página">
-      <button class="action-btn" id="languageToggle" type="button" aria-label="Alternar idioma">EN</button>
-      <button class="action-btn" id="themeToggle" type="button" aria-label="Alternar tema">☾</button>
-    </div>
+    <nav class="controls" aria-label="Controles da página">
+      <button id="languageToggle" type="button" aria-label="Alternar idioma">EN</button>
+      <button id="themeToggle" type="button" aria-label="Alternar tema">☾</button>
+    </nav>
 
     <header class="hero">
-      <div class="avatar" aria-hidden="true">GE</div>
-      <div>
-        <h1>Gabriel Estevão</h1>
-        <p class="role">
-          <span data-lang-inline="pt">Engenheiro de Software</span>
-          <span data-lang-inline="en">Software Engineer</span>
-        </p>
-        <p class="tagline">Backend • APIs • Cloud • Microservices</p>
+      <h1>Gabriel Estevão</h1>
+      <div class="hero-sub">
+        <span data-lang-inline="pt">Engenheiro de Software</span>
+        <span data-lang-inline="en">Software Engineer</span>
+        <span class="hero-sep" aria-hidden="true"> · </span>
+        <span data-lang-inline="pt">São Paulo, Brasil</span>
+        <span data-lang-inline="en">São Paulo, Brazil</span>
       </div>
     </header>
 
     <main>
-      <section aria-labelledby="skills-title">
-        <h2 id="skills-title">
-          <span data-lang-inline="pt">Competências principais</span>
-          <span data-lang-inline="en">Core skills</span>
-        </h2>
-        <div class="skills" id="skillsContainer">
-          <span class="chip primary">.NET</span>
-          <span class="chip primary">C#</span>
-          <span class="chip primary">Web API</span>
-          <span class="chip primary">Microservices</span>
-          <span class="chip primary">RabbitMQ</span>
-          <span class="chip">Microsoft Azure</span>
-          <span class="chip">CI/CD</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Kubernetes</span>
-          <span class="chip">Azure DevOps</span>
-          <span class="chip">Apache Kafka</span>
-          <span class="chip">Oracle</span>
-          <span class="chip">MongoDB</span>
-          <span class="chip">SonarQube</span>
-          <span class="chip">Dynatrace</span>
-          <span class="chip">Datadog</span>
+      <section aria-labelledby="stack-label">
+        <h2 class="label" id="stack-label">Stack</h2>
+        <div class="stack-block">
+          <p class="stack-primary">.NET · C# · Web API · Microservices · RabbitMQ</p>
+          <p class="stack-secondary">Azure · Docker · Kubernetes · CI/CD · Kafka · Oracle · MongoDB · SonarQube · Dynatrace · Datadog</p>
         </div>
-        <button class="skills-toggle" id="skillsToggle" aria-label="Mostrar mais competências" style="display: none;">+ Mais</button>
       </section>
 
-      <section id="experience" aria-labelledby="experience-title">
-        <h2 id="experience-title">
-          <span data-lang-inline="pt">Experiências de trabalho</span>
-          <span data-lang-inline="en">Work experience</span>
+      <section id="experience" aria-labelledby="experience-label">
+        <h2 class="label" id="experience-label">
+          <span data-lang-inline="pt">Experiência</span>
+          <span data-lang-inline="en">Experience</span>
         </h2>
 
         <div class="timeline">
-          <article class="timeline-item">
-            <div class="period" data-lang-block="pt">2024 - presente</div>
-            <div class="period" data-lang-block="en">2024 - Present</div>
-            <div class="company">
-              <div class="company-title">
-                <span>XP Inc.</span>
-                <a href="https://www.xpi.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site da XP Inc.">↗</a>
+          <article class="entry">
+            <div class="entry-date">
+              <span data-lang-block="pt">2024 — presente</span>
+              <span data-lang-block="en">2024 — Present</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-org">
+                XP Inc.
+                <a href="https://www.xpi.com.br/" target="_blank" rel="noopener noreferrer" aria-label="xpi.com.br">↗</a>
               </div>
-              <p class="description" data-lang-block="pt">São Paulo, Brasil • <span class="company-duration" data-start-date="2024-10-01" data-lang="pt">1 ano 8 meses</span></p>
-              <p class="description" data-lang-block="en">São Paulo, Brazil • <span class="company-duration" data-start-date="2024-10-01" data-lang="en">1 year 8 months</span></p>
+              <div class="entry-meta" data-lang-block="pt">São Paulo · <span class="company-duration" data-start-date="2024-10-01" data-lang="pt">1 ano 8 meses</span></div>
+              <div class="entry-meta" data-lang-block="en">São Paulo · <span class="company-duration" data-start-date="2024-10-01" data-lang="en">1 year 8 months</span></div>
 
-              <div class="company-roles">
-                <div class="role-entry">
-                  <strong data-lang-inline="pt">Software Engineer</strong>
-                  <strong data-lang-inline="en">Software Engineer</strong>
-                  <span data-lang-block="pt" class="role-duration" data-start-date="2025-09-01" data-lang="pt">Tempo integral • set de 2025 - o momento · [duração] • Híbrido</span>
-                  <span data-lang-block="en" class="role-duration" data-start-date="2025-09-01" data-lang="en">Full-time • Sep 2025 - Present · [duration] • Hybrid</span>
-                  <p class="stack">.NET • Microsserviços • Azure • Redis • Kafka • RabbitMQ • Docker • Kubernetes</p>
+              <div class="roles">
+                <div class="role-item">
+                  <div class="role-name">Software Engineer</div>
+                  <span class="role-meta role-duration" data-lang-block="pt" data-start-date="2025-09-01" data-lang="pt">Tempo integral · set 2025 – presente · [duração] · Híbrido</span>
+                  <span class="role-meta role-duration" data-lang-block="en" data-start-date="2025-09-01" data-lang="en">Full-time · Sep 2025 – Present · [duration] · Hybrid</span>
+                  <div class="role-stack">.NET · Microservices · Azure · Redis · Kafka · RabbitMQ · Docker · Kubernetes</div>
                 </div>
 
-                <div class="role-entry">
-                  <strong data-lang-inline="pt">Software Engineer Intern</strong>
-                  <strong data-lang-inline="en">Software Engineer Intern</strong>
-                  <span data-lang-block="pt">Estágio • out de 2024 - ago de 2025 · 11 meses • Remoto</span>
-                  <span data-lang-block="en">Internship • Oct 2024 - Aug 2025 · 11 months • Remote</span>
-                  <p class="stack">.NET • Microsserviços • Azure DevOps • Web API • Scrum</p>
+                <div class="role-item">
+                  <div class="role-name">Software Engineer Intern</div>
+                  <span class="role-meta" data-lang-block="pt">Estágio · out 2024 – ago 2025 · 11 meses · Remoto</span>
+                  <span class="role-meta" data-lang-block="en">Internship · Oct 2024 – Aug 2025 · 11 months · Remote</span>
+                  <div class="role-stack">.NET · Microservices · Azure DevOps · Web API · Scrum</div>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="timeline-item">
-            <div class="period" data-lang-block="pt">2023 - 2024</div>
-            <div class="period" data-lang-block="en">2023 - 2024</div>
-            <div class="company">
-              <div class="company-title">
-                <span>FIAP</span>
-                <a href="https://www.fiap.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site da FIAP">↗</a>
+          <article class="entry">
+            <div class="entry-date">
+              <span data-lang-block="pt">2023 — 2024</span>
+              <span data-lang-block="en">2023 — 2024</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-org">
+                FIAP
+                <a href="https://www.fiap.com.br/" target="_blank" rel="noopener noreferrer" aria-label="fiap.com.br">↗</a>
               </div>
-              <p class="description" data-lang-block="pt">São Paulo, Brasil • 1 ano 8 meses</p>
-              <p class="description" data-lang-block="en">São Paulo, Brazil • 1 year 8 months</p>
+              <div class="entry-meta" data-lang-block="pt">São Paulo · 1 ano 8 meses</div>
+              <div class="entry-meta" data-lang-block="en">São Paulo · 1 year 8 months</div>
 
-              <div class="company-roles">
-                <div class="role-entry">
-                  <strong>Open Day Host</strong>
-                  <span data-lang-block="pt">Terceirizado • ago de 2024 - out de 2024 · 3 meses</span>
-                  <span data-lang-block="en">Contract • Aug 2024 - Oct 2024 · 3 months</span>
-                  <p class="stack">Communication • Strategic Communication</p>
+              <div class="roles">
+                <div class="role-item">
+                  <div class="role-name">Open Day Host</div>
+                  <span class="role-meta" data-lang-block="pt">Terceirizado · ago 2024 – out 2024 · 3 meses</span>
+                  <span class="role-meta" data-lang-block="en">Contract · Aug 2024 – Oct 2024 · 3 months</span>
+                  <div class="role-stack">Communication · Strategic Communication</div>
                 </div>
 
-                <div class="role-entry">
-                  <strong>Prototyping Technician</strong>
-                  <span data-lang-block="pt">Meio período • mar de 2023 - out de 2024 · 1 ano 8 meses • Presencial</span>
-                  <span data-lang-block="en">Part-time • Mar 2023 - Oct 2024 · 1 year 8 months • On-site</span>
-                  <p class="stack">C++ • Python • Prototipagem • Sistemas embarcados</p>
+                <div class="role-item">
+                  <div class="role-name">Prototyping Technician</div>
+                  <span class="role-meta" data-lang-block="pt">Meio período · mar 2023 – out 2024 · 1 ano 8 meses · Presencial</span>
+                  <span class="role-meta" data-lang-block="en">Part-time · Mar 2023 – Oct 2024 · 1 year 8 months · On-site</span>
+                  <div class="role-stack">C++ · Python · Prototipagem · Sistemas embarcados</div>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="timeline-item">
-            <div class="period" data-lang-block="pt">2023</div>
-            <div class="period" data-lang-block="en">2023</div>
-            <div class="company">
-              <div class="company-title">
-                <span>Atlasmaq do Brasil ind. e com. de maquinas S.A.</span>
-              </div>
-              <p class="description" data-lang-block="pt">São Paulo, Brasil • No local</p>
-              <p class="description" data-lang-block="en">São Paulo, Brazil • On-site</p>
+          <article class="entry">
+            <div class="entry-date">
+              <span data-lang-block="pt">2023</span>
+              <span data-lang-block="en">2023</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-org">Atlasmaq do Brasil</div>
+              <div class="entry-meta" data-lang-block="pt">São Paulo · Presencial</div>
+              <div class="entry-meta" data-lang-block="en">São Paulo · On-site</div>
 
-              <div class="company-roles">
-                <div class="role-entry">
-                  <strong>Mechatronics Engineering Intern</strong>
-                  <span data-lang-block="pt">Estágio • jan de 2023 - mar de 2023 · 3 meses</span>
-                  <span data-lang-block="en">Internship • Jan 2023 - Mar 2023 · 3 months</span>
-                  <p class="stack">Python • Electrical Engineering • Mechatronics</p>
+              <div class="roles">
+                <div class="role-item">
+                  <div class="role-name">Mechatronics Engineering Intern</div>
+                  <span class="role-meta" data-lang-block="pt">Estágio · jan 2023 – mar 2023 · 3 meses</span>
+                  <span class="role-meta" data-lang-block="en">Internship · Jan 2023 – Mar 2023 · 3 months</span>
+                  <div class="role-stack">Python · Electrical Engineering · Mechatronics</div>
                 </div>
               </div>
             </div>
@@ -144,45 +127,47 @@
         </div>
       </section>
 
-      <section id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">
-          <span data-lang-inline="pt">Projetos selecionados</span>
-          <span data-lang-inline="en">Selected projects</span>
+      <section id="projects" aria-labelledby="projects-label">
+        <h2 class="label" id="projects-label">
+          <span data-lang-inline="pt">Projetos</span>
+          <span data-lang-inline="en">Projects</span>
         </h2>
 
         <div class="project-list">
-          <article class="project">
-            <h3>Autodrive</h3>
-            <p data-lang-block="pt">Controle e monitoramento de carro autônomo com Python, OpenCV/YOLO, Flask, CustomTkinter e comunicação serial.</p>
-            <p data-lang-block="en">Autonomous car control and monitoring using Python, OpenCV/YOLO, Flask, CustomTkinter and serial communication.</p>
+          <article class="project-entry">
+            <div class="project-name">Autodrive</div>
+            <p class="project-desc" data-lang-block="pt">Controle e monitoramento de carro autônomo com Python, OpenCV/YOLO, Flask, CustomTkinter e comunicação serial.</p>
+            <p class="project-desc" data-lang-block="en">Autonomous car control and monitoring using Python, OpenCV/YOLO, Flask, CustomTkinter and serial communication.</p>
           </article>
 
-          <article class="project">
-            <h3 data-lang-inline="pt">Sistemas de abertura de conta</h3>
-            <h3 data-lang-inline="en">Account opening systems</h3>
-            <p data-lang-block="pt">Atuação em sistemas backend para abertura de contas, validação de documentos, integrações e melhoria de jornadas digitais.</p>
-            <p data-lang-block="en">Backend work on account opening systems, document validation, integrations and digital journey improvements.</p>
+          <article class="project-entry">
+            <div class="project-name">
+              <span data-lang-inline="pt">Sistemas de abertura de conta</span>
+              <span data-lang-inline="en">Account opening systems</span>
+            </div>
+            <p class="project-desc" data-lang-block="pt">Atuação em sistemas backend para abertura de contas, validação de documentos, integrações e melhoria de jornadas digitais.</p>
+            <p class="project-desc" data-lang-block="en">Backend work on account opening systems, document validation, integrations and digital journey improvements.</p>
           </article>
         </div>
       </section>
 
-      <section id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">
+      <section id="contact" aria-labelledby="contact-label">
+        <h2 class="label" id="contact-label">
           <span data-lang-inline="pt">Contato</span>
           <span data-lang-inline="en">Contact</span>
         </h2>
 
-        <div class="links">
-          <a class="link-card" href="https://github.com/gatorabs" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
-          <a class="link-card" href="https://www.linkedin.com/in/gabriel-jos%C3%A9-spioni-estev%C3%A3o-742403235/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
-          <a class="link-card" href="mailto:gabrielprivate123@gmail.com">Email <span class="arrow">→</span></a>
+        <div class="contact-line">
+          <a href="https://github.com/gatorabs" target="_blank" rel="noopener noreferrer">GitHub <span class="link-arrow">↗</span></a>
+          <a href="https://www.linkedin.com/in/gabriel-jos%C3%A9-spioni-estev%C3%A3o-742403235/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="link-arrow">↗</span></a>
+          <a href="mailto:gabrielprivate123@gmail.com">Email <span class="link-arrow">→</span></a>
         </div>
       </section>
     </main>
 
     <footer>
-      <span data-lang-inline="pt">Portfólio objetivo para leitura rápida por RH, recrutadores e times técnicos.</span>
-      <span data-lang-inline="en">A concise portfolio for quick reading by HR, recruiters and technical teams.</span>
+      <span data-lang-inline="pt">Portfólio para leitura rápida.</span>
+      <span data-lang-inline="en">Built for quick reading.</span>
     </footer>
   </div>
 
