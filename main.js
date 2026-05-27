@@ -55,8 +55,18 @@ document.querySelectorAll('.role-duration').forEach(element => {
   const lang = element.dataset.lang;
   const durationText = calculateDuration(startDate, lang);
   
-  const text = element.textContent;
-  element.textContent = text.replace('[duração]', durationText).replace('[duration]', durationText);
+  let text = element.textContent;
+  text = text.replace(/\[duração\]/g, durationText);
+  text = text.replace(/\[duration\]/g, durationText);
+  element.textContent = text;
+});
+
+// Atualizar duração da empresa na descrição
+document.querySelectorAll('.company-duration').forEach(element => {
+  const startDate = element.dataset.startDate;
+  const lang = element.dataset.lang;
+  const durationText = calculateDuration(startDate, lang);
+  element.textContent = durationText;
 });
 
 // Skills toggle
