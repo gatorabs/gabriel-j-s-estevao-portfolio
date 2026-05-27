@@ -363,36 +363,147 @@ html[data-lang="pt"] [data-lang-inline="en"] { display: none; }
 html[data-lang="en"] [data-lang-inline="en"] { display: inline; }
 html[data-lang="en"] [data-lang-inline="pt"] { display: none; }
 
+.skills-toggle {
+  display: none;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.skills-toggle:hover,
+.skills-toggle:focus-visible {
+  border-color: var(--strong-border);
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+  outline: none;
+}
+
+.skills.collapsed .chip:nth-child(n+7) {
+  display: none;
+}
+
 @media (max-width: 720px) {
   :root { --base-font: 14px; }
 
   .page {
     width: 100%;
     max-width: var(--max);
-    padding: 16px 20px 36px;
+    padding: 20px 24px 48px;
   }
-  .top-actions { margin-bottom: 30px; }
-  .hero { grid-template-columns: 56px 1fr; gap: 12px; }
+  
+  .top-actions { margin-bottom: 32px; }
+  
+  .hero { 
+    grid-template-columns: 56px 1fr; 
+    gap: 14px; 
+    margin-bottom: 36px;
+  }
+  
   .avatar { width: 56px; height: 56px; font-size: 1.15rem; }
-  .quick-grid, .links { grid-template-columns: 1fr; }
-  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
-  .period { color: var(--text); }
-  section { margin-top: 26px; }
+  
+  .quick-grid, .links { 
+    grid-template-columns: 1fr; 
+    gap: 12px;
+  }
+  
+  .timeline-item { 
+    grid-template-columns: 100px 1fr; 
+    gap: 14px;
+  }
+  
+  .timeline {
+    gap: 32px;
+  }
+  
+  .period { 
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  
+  .company {
+    padding-bottom: 24px;
+  }
+  
+  section { 
+    margin-top: 32px;
+  }
+  
+  h2 {
+    margin-bottom: 16px;
+  }
+  
+  .skills {
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  .project-list {
+    gap: 14px;
+    margin-top: 18px;
+  }
+  
+  .project {
+    padding: 16px;
+  }
+  
+  .link-card {
+    padding: 16px;
+    font-size: .9rem;
+  }
+  
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    font-size: .75rem;
+  }
+  
+  .skills-toggle {
+    display: inline-flex;
+  }
+  
+  .skills.collapsed .chip:nth-child(n+7) {
+    display: none;
+  }
 }
 
 @media (max-width: 420px) {
   :root { --base-font: 13.5px; }
 
   .page {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 18px;
+    padding-bottom: 44px;
+  }
+
+  .hero {
+    margin-bottom: 28px;
   }
 
   .company-roles {
     padding-left: 18px;
+    gap: 16px;
   }
 
   .role-entry::before {
     left: -18px;
+  }
+  
+  .timeline {
+    gap: 28px;
+  }
+  
+  .company {
+    padding-bottom: 20px;
+  }
+  
+  section {
+    margin-top: 28px;
   }
 }

@@ -26,4 +26,30 @@ function updateButtons() {
   languageToggle.textContent = root.dataset.lang === 'pt' ? 'EN' : 'PT';
   document.documentElement.lang = root.dataset.lang === 'pt' ? 'pt-BR' : 'en';
 }
+
+// Skills toggle
+const skillsContainer = document.getElementById('skillsContainer');
+const skillsToggle = document.getElementById('skillsToggle');
+
+if (skillsContainer && skillsToggle) {
+  const isMobile = window.innerWidth <= 720;
+  
+  function initSkillsToggle() {
+    if (window.innerWidth <= 720) {
+      skillsContainer.classList.add('collapsed');
+      skillsToggle.style.display = 'inline-flex';
+    } else {
+      skillsContainer.classList.remove('collapsed');
+      skillsToggle.style.display = 'none';
+    }
+  }
+  
+  skillsToggle.addEventListener('click', () => {
+    skillsContainer.classList.toggle('collapsed');
+    skillsToggle.textContent = skillsContainer.classList.contains('collapsed') ? '+ Mais' : '- Menos';
+  });
+  
+  window.addEventListener('resize', initSkillsToggle);
+  initSkillsToggle();
+}
  
